@@ -1,0 +1,330 @@
+#include<iostream>
+#include <fstream>
+#include <cstdlib>
+#include <ctime>
+#include<string>
+using namespace std;
+struct joining {
+	string first_name;
+	string phone_no;
+	string address;
+	string Ps;//personal training
+	string looker;//Locker Room
+	float price;
+	string Last_name;
+	string slip; //For Slip Printing
+};
+int main() {
+	string y;
+	do {
+		system("cls");
+		cout << "\n\n\n\t\t\t=======================================================================";
+		cout << "\n\t\t\t\tGood Morining and Welcome to the GYM Management System\n";
+		cout << " \n\n\t\t\tHow May I help you Mam or Sir ? " << endl;
+		cout << " \n\t\t\t\tPress 1 for Information " << endl;
+		cout << " \n\t\t\t\tPress 2 for Joining " << endl;
+		cout << "\n\t\t\t\tPress 3 for Exit " << endl;
+		int a;
+		cout << "\n\t\t\tEnter your Choice ? ";
+		cin >> a;
+		system("cls");
+		joining j[1];
+		ofstream f;
+		f.open("Gym.txt", ios::app | ios::out);
+		int g, h;
+		string c, e, f1;
+		system("cls");
+		switch (a) {
+		case 1:		cout << "\n\n\n\t\t\t=====================================================";
+			cout << "\n\t\t\t\tFor Information it is the procedure" << endl;
+			cout << "\t\t\t=====================================================" << endl;
+			cout << "  \n\t\t\t\tMonthly charges for only GYM is Rs 1000 " << endl;
+			cout << "  \n\t\t\t\tMonthly charges for  GYM and Fitness is Rs 1500 " << endl;
+			cout << "  \n\t\t\t\tMonthly charges for only Fitness is Rs 1000 " << endl;
+			cout << "  \n\t\t\t\tThank You have a good-day " << endl;
+			cout << "  \n\t\t\t\tYou may Leave Now " << endl;
+			cout << "  \n\t\t\tDo you want to continue Yes or No ? ";
+			cin >> y;
+			cout << "\n\t\t\t\t\tOk Good-Bye " << endl;
+			break;
+		case 2:	cout << "\n\n\n\t\t\t=================================================================";
+			cout << "\n\t\t\t\tFor Joining you need to fill the following form" << endl;
+			cout << "\t\t\t=================================================================" << endl;
+			for (int i = 0; i < 1; i++) {
+				int b;
+				cout << "\n\t\t\t\tEnter your First Name ? ";
+				cin >> j[i].first_name;
+				f << endl;
+				f << " Your First name is: " << j[i].first_name << endl;
+				cout << "\n\t\t\t\tEnter your Last Name ? ";
+				cin >> j[i].Last_name;
+				f << " Your Last name is: " << j[i].Last_name << endl;
+				cout << "\n\t\t\t\tEnter your Phone Number ? ";
+				cin >> j[i].phone_no;
+				f << " Your Phone number is: " << j[i].phone_no << endl;
+				cin.ignore();
+				cout << "\n\t\t\t\tEnter your Address ? ";
+				getline(cin, j[i].address);
+				f << " Your Address is: " << j[i].address << endl;
+				f.close();
+				do {
+					system("cls");
+					cout << "\n\t\t\t\t\tPress 1 for only GYM  " << endl;
+					cout << "\n\t\t\t\t\tPress 2  for  GYM and Fitness  " << endl;
+					cout << "\n\t\t\t\t\tPress 3  for only Fitness " << endl;
+					cout << "\n\t\t\t\tEnter your Choice ? ";
+					cin >> b;
+				} while (b < 1 || b > 3);
+				system("cls");
+				switch (b) {
+
+				case 1:	cout << "\n\n\n\t\t\t=====================================================================";
+					cout << "\n\t\t\t\t\tMonthly charges for only GYM is Rs 1000 " << endl;
+					cout << "\t\t\t=====================================================================" << endl;
+					cout << "\n\t\t\t\tDo you want to continue yes or no ? ";
+					cin >> y;
+					if (y == "yes") {
+						for (int k = 0; k < 1; k++) {
+							cin.ignore();
+							cout << "\n\t\t\t\tDo you want Personal training ? ";
+							getline(cin, j[k].Ps);
+							f << " Do you want Personal Training ? " << j[k].Ps << endl;
+							cout << "\n\t\t\t\tDo you want Personal looker Box ? ";
+							getline(cin, j[k].looker);
+							f << "\n\t\t\t\tDo you want  Personal looker Box ? yes : no " << j[k].looker << endl;
+							if (j[k].looker == "yes") {
+								srand((unsigned)time(0));
+								int randomNumber;
+								for (int i = 0; i < 1; i++) {
+									randomNumber = (rand() % 100) + 1;
+									cout << "\n\t\t\t\tYour Personal Looker Box Number: " << randomNumber << endl;
+								}
+								cout << "\n\t\t\t\tDo you want to print payment slip? yes : no ? ";
+								cin >> j[k].slip;
+								f << "\n\t\t\t\tDo you want to print payment slip? yes : no " << j[k].slip << endl;
+								if (j[k].slip == "no") {
+									cout << "\n\t\t\tokay go ahead " << endl;
+									cout << "\n\t\t\tYou may Join  from Now or from Towmarrow " << endl;
+									cout << "\n\t\t\tThank You and have a Good-day " << endl;
+									exit(0);
+								}
+								system("pause");
+								system("CLS");
+							}
+							else {
+								cout << "\n\t\t\t\tOk ThankYou As you wish " << endl;
+								system("pause");
+								system("CLS");
+							}
+						}
+					}
+					else {
+						cout << "\n\t\t\t\t\t\tOk Go Ahead " << endl;
+						system("pause");
+					}
+					break;
+				case 2:	cout << "\n\n\n\t\t\t=====================================================================";
+					cout << "\n\t\t\t\t\tMonthly charges for  GYM and Fitness is Rs 1500" << endl;
+					cout << "\t\t\t=====================================================================" << endl;
+					cout << "\n\t\t\tDo you want to continue yes or no ? ";
+					cin >> y;
+					if (y == "yes") {
+						for (int k = 0; k < 1; k++) {
+							cin.ignore();
+							cout << "\n\t\t\t\tDo you want Personal training ? ";
+							getline(cin, j[k].Ps);
+							f << " Do you want Personal Training ? " << j[k].Ps << endl;
+							cout << "\n\t\t\t\tDo you want Personal looker Box ? ";
+							getline(cin, j[k].looker);
+							f << "\n\t\t\t\tDo you want  Personal looker Box ? yes : no " << j[k].looker << endl;
+							if (j[k].looker == "yes") {
+								srand((unsigned)time(0));
+								int randomNumber;
+								for (int i = 0; i < 1; i++) {
+									randomNumber = (rand() % 100) + 1;
+									cout << "\n\t\t\t\tYour Personal Looker Box Number: " << randomNumber << endl;
+								}
+								cout << "\n\t\t\t\tDo you want to print payment slip? yes : no ? ";
+								cin >> j[k].slip;
+								f << "\n\t\t\t\tDo you want to print payment slip? yes : no " << j[k].slip << endl;
+								if (j[k].slip == "no") {
+									cout << "\n\t\t\tokay go ahead " << endl;
+									cout << "\n\t\t\tYou may Join  from Now or from Towmarrow " << endl;
+									cout << "\n\t\t\tThank You and have a Good-day " << endl;
+									exit(0);
+								}
+								system("pause");
+								system("CLS");
+							}
+							else {
+								cout << "\n\t\t\t\tOk ThankYou As you wish " << endl;
+								system("pause");
+								system("CLS");
+							}
+						}
+					}
+					else {
+						cout << "\n\t\t\t\t\t\tOk Go Ahead " << endl;
+						system("pause");
+					}
+					break;
+				case 3:	cout << "\n\n\n\t\t\t=====================================================================";
+					cout << "\n\t\t\t\t\tMonthly charges for only Fitness is Rs 1000 " << endl;
+					cout << "\t\t\t=====================================================================" << endl;
+					cout << "\n\t\t\tDo you want to continue yes or no ? ";
+					cin >> y;
+					if (y == "yes") {
+						for (int k = 0; k < 1; k++) {
+							cin.ignore();
+							cout << "\n\t\t\t\tDo you want Personal training ? ";
+							getline(cin, j[k].Ps);
+							f << " Do you want Personal Training ? " << j[k].Ps << endl;
+							cout << "\n\t\t\t\tDo you want Personal looker Box ? ";
+							getline(cin, j[k].looker);
+							f << "\n\t\t\t\tDo you want  Personal looker Box ? yes : no " << j[k].looker << endl;
+							if (j[k].looker == "yes") {
+								srand((unsigned)time(0));
+								int randomNumber;
+								for (int i = 0; i < 1; i++) {
+									randomNumber = (rand() % 100) + 1;
+									cout << "\n\t\t\t\tYour Personal Looker Box Number: " << randomNumber << endl;
+								}
+								cout << "\n\t\t\t\tDo you want to print payment slip? yes : no ? ";
+								cin >> j[k].slip;
+								f << "\n\t\t\t\tDo you want to print payment slip? yes : no " << j[k].slip << endl;
+								if (j[k].slip == "no") {
+									cout << "\n\t\t\tokay go ahead " << endl;
+									cout << "\n\t\t\tYou may Join  from Now or from Towmarrow " << endl;
+									cout << "\n\t\t\tThank You and have a Good-day " << endl;
+									exit(0);
+								}
+								system("pause");
+								system("CLS");
+							}
+							else {
+								cout << "\n\t\t\t\tOk ThankYou As you wish " << endl;
+								system("pause");
+								system("CLS");
+							}
+						}
+					}
+					else {
+						cout << "\n\t\t\t\t\t\tOk Go Ahead " << endl;
+						system("pause");
+					}
+					break;
+				default:	cout << "\n\n\n\t\t\t=====================================================================";
+					cout << "\n\t\t\t\t\t\tYou enter wrong Number" << endl;
+					cout << "\t\t\t=====================================================================" << endl;
+					cout << "\n\t\t\tDo you want to continue Yes or No ? ";
+					cin >> y;
+					if (y == "no") {
+						cout << "\n\t\t\t\t\tOk Good-Bye " << endl;
+						exit(0);
+					}
+					break;
+				}
+			}
+			for (int i = 0; i < 1; i++) {
+				int d;
+				cout << "\n\t\t\tYour First Name is " << endl;
+				cout << "\t\t\t" << j[i].first_name << endl;
+				cout << "\n\t\t\tYour Last Name is " << endl;
+				cout << "\t\t\t" << j[i].Last_name << endl;
+				cout << "\n\t\t\tYour Phone Number is " << endl;
+				cout << "\t\t\t" << j[i].phone_no << endl;
+				cout << "\n\t\t\tYour Address is " << endl;
+				cout << "\t\t\t" << j[i].address << endl;
+				system("pause");
+				do {
+					system("cls");
+					cout << "\n\t\t\tYour Package is " << endl;
+					cout << "\n\t\t\t\tPackage 1 GYM ? " << endl;
+					cout << "\n\t\t\t\tPackage 2 GYM and Fitness? " << endl;
+					cout << "\n\t\t\t\tPackage 3 Fitness? " << endl;
+					cout << "\n\t\t\tYour Package in Number is ? ";
+					cin >> d;
+				} while (d < 1 || d>3);
+				system("cls");
+				switch (d) {
+				case 1:cout << "\n\n\n\t\t\t=====================================================================";
+					cout << "\n\t\t\t\t\t\tYour Package is only GYM " << endl;
+					cout << "\t\t\t=====================================================================" << endl;
+					cout << "\n\t\t\t\tYour price is Rs 1000 " << endl;
+					cout << "\n\t\t\tDo you want to continue Yes or No ? ";
+					cin >> y;
+					if (y == "no") {
+						cout << "\n\t\t\t\t\tOk Good-Bye " << endl;
+						exit(0);
+					}
+					break;
+				case 2:cout << "\n\n\n\t\t\t=====================================================================";
+					cout << "\n\t\t\t\t\t\tYour Package is both GYM and Fitness " << endl;
+					cout << "\t\t\t=====================================================================" << endl;
+					cout << "\n\t\t\t\tYour price is Rs 1500 " << endl;
+					cout << "\n\t\t\tDo you want to continue Yes or No ? ";
+					cin >> y;
+					if (y == "no") {
+						cout << "\n\t\t\t\t\tOk Good-Bye " << endl;
+						exit(0);
+					}
+					break;
+				case 3:cout << "\n\n\n\t\t\t=====================================================================";
+					cout << "\n\t\t\t\t\t\tYour Package is only Fitness" << endl;
+					cout << "\t\t\t=====================================================================" << endl;
+					cout << " \n\t\t\t\tYour price is Rs 1000 " << endl;
+					cout << "\n\t\t\tDo you want to continue Yes or No ? ";
+					cin >> y;
+					if (y == "no") {
+						cout << "\n\t\t\t\t\tOk Good-Bye " << endl;
+						exit(0);
+					}
+					break;
+				default:cout << "\n\n\n\t\t\t=====================================================================";
+					cout << "\n\t\t\t\t\t\tYou enter wrong Number" << endl;
+					cout << "\t\t\t=====================================================================" << endl;
+					cout << "\n\t\t\tDo you want to continue Yes or No ? ";
+					cin >> y;
+					if (y == "no") {
+						cout << "\n\t\t\t\t\tOk Good-Bye " << endl;
+						exit(0);
+					}
+					break;
+				}			//cout << "\n\t\t\tEnter your Price ? ";
+				//cin >> j[i].price;
+	
+				
+				cout << "\n\t\t\tYour Price is " << j[i].price << endl;
+				cout << "\n\t\t\tYou may Join  from Now or from Towmarrow " << endl;
+				cout << "\n\t\t\tThank You and have a Good-day " << endl;
+				cout << "\n\t\t\tDo you want to continue Yes or No ? ";
+				cin >> y;
+				cout << "\n\t\t\t\t\tOk Good-Bye " << endl;
+			}
+			break;
+		case 3:	cout << "\n\n\n\t\t\t=====================================================";
+			cout << "\n\t\t\t\tThank You and have a Good - day " << endl;
+			cout << "\t\t\t=====================================================" << endl;
+			cout << "  \n\t\t\tYou may Leave Now " << endl;
+			cout << "  \n\t\t\tDo you want to continue Yes or No ? ";
+			cin >> y;
+			if (y == "no") {
+				cout << "\n\t\t\t\t\tOk Good-Bye " << endl;
+				exit(0);
+			}
+			break;
+		default:
+			cout << "\n\n\n\t\t\t=====================================================";
+			cout << "\n\t\t\t\t\tYou enter wrong Number " << endl;
+			cout << "\t\t\t=====================================================" << endl;
+			cout << "  \n\t\t\tDo you want to continue Yes or No ? ";
+			cin >> y;
+			if (y == "no") {
+				cout << "\n\t\t\t\t\tOk Good-Bye " << endl;
+				exit(0);
+			}
+			break;
+		}
+	} while (y == "yes");
+	return 0;
+}
