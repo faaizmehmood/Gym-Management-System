@@ -4,4 +4,7 @@ This is the code in C++ related to a system named Gym manangement system where u
 A complete code is in the .txt file. 
 There is a second file with file handling in the .txt which is the file handling version of the file. 
 A complete code is in the .txt-file-handling file. 
+The project is based on the different concept of OOP (Object Oriented Programming) like File handling, inheritance, polyphormism concepts...,etc.
+There is a file named Hard Copy of Project in .doc file which including the complete documentation of the project.
 Thanks.
+
